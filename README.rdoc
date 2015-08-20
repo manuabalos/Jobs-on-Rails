@@ -1,10 +1,10 @@
-== INFORMACIÓN
+=== INFORMACIÓN
 
 Aplciación web la cual permite encontrar todas las ofertas de trabajo relacionadas con Ruby on Rails. 
 
 La información de las ofertas de trabajo es obtenida a través de la tecnica scraping en diferentes plataformas web de ofertas de trabajo.
 
-= HERRAMIENTAS UTILIZADAS
+=== HERRAMIENTAS UTILIZADAS
 
  * Ruby 2.2.1
  * Ruby on Rails 4.2.3
@@ -12,10 +12,10 @@ La información de las ofertas de trabajo es obtenida a través de la tecnica sc
 
  ... (en construcción)
 
-= AUTOR
+=== AUTOR
 
 Manuel Ábalos Serrano
 
-== VERSION
+=== VERSION
 
  Aún en fase de planificación y desarrollo.
