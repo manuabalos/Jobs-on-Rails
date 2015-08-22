@@ -1,0 +1,66 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:700,300italic,400);
+
+body{
+	background-color: #F2F2F2;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	color: #555555;
+}
+
+h1,h2,h3,h4,h5,h6{
+	font-weight: 300;
+	color: #606CD3;
+}
+
+h1{
+	font-size: 36px;
+	font-weight: bold;
+}
+h3{
+	color: #95A5A6;
+}
+h4{
+	color: #609CD3;
+}
+
+p{
+	line-height: 30px;
+	margin-bottom: 25px;
+}
+
+hr{
+	display: block;
+	height: 1px;
+	border: 0px;
+	border-top: 1px solid #CCC;
+	margin: 1em 0;
+	padding: 0;
+}
+
+.navbar-default{
+	background-color: rgba(0,0,0,0.9);
+	border-color: transparent;
+
+	.navbar-brand, .navbar-nav li a{
+		color: white;
+	}
+
+	.navbar-nav li a:hover{
+		color: #609CD3;
+	}
+}
+
+header{
+	background: url(/home/background.jpg) no-repeat center;
+	background-size: cover;
+	width: 100%;
+	min-height: 640px;
+	padding-top: 100px;
+
+	h1{
+		color: white;
+		margin-bottom: 15px;
+		letter-spacing: 1px;
+		margin-top: 15%;
+	}
+}
