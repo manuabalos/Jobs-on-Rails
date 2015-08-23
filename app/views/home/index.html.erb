@@ -1,19 +1,26 @@
 <!-- Barra de Navegación -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
     <div class="navbar-header">
-    	<buttom type="buttom"></buttom>
-    	<a href="#" class="navbar-brand"><strong>MYLOGO.COM</strong></a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#"><strong>JOBS ON RAILS</strong></a>
     </div>
-    <div class="navbar-collapse collapese">
-    	<ul class="nav navbar-nav navbar-right">
-    		<li><a href="#"> Link </a></li>
-    		<li><a href="#"> Link </a></li>
-    		<li><a href="#"> Link </a></li>
-    		<li><a href="#"> Link </a></li>
-    	</ul>
-    </div>	
-  </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+            <li><a href="#">¿Qué es?</a></li>
+            <li><a href="#">Tecnologías</a></li>
+            <li><a href="#">Contacto</a></li>
+        </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
 </nav>
 <!-- Fin de Barra de Navegación -->
 
@@ -21,14 +28,9 @@
 <header>
     <div class="container">
         <div class="row">
-            <div class="col-xs-12 col-sm-5 col-sm-offset-1">
-            <h1>Lorem ipsum dolor sit amet</h1>
-            <form class="form-inline">
-                <div class="form-group">
-                    <input type="text" class="form-control" id="suscribir" placeholder="Introduzca su email">
-                    <buttom class="btn btn-info btn-lg">Suscribirme</buttom>
-                </div>
-            </form>
+            <div class="col-xs-12 col-sm-5 col-sm-offset-1 centrado">
+                <h1>JOBS ON RAILS <p><small>Donde encontrarás todas las ofertas de trabajo relacionadas con Ruby on Rails</small></p></h1>
+                <buttom class="btn btn-danger btn-lg">Entrar</buttom>
             </div>
         </div>
     </div>

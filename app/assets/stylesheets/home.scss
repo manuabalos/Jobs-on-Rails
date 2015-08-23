@@ -40,13 +40,14 @@ hr{
 .navbar-default{
 	background-color: rgba(0,0,0,0.9);
 	border-color: transparent;
+	border-bottom: 0.1em solid rgba(255, 0, 0, 0.6);
 
 	.navbar-brand, .navbar-nav li a{
 		color: white;
 	}
 
 	.navbar-nav li a:hover{
-		color: #609CD3;
+		color: rgba(255, 0, 0, 0.6);
 	}
 }
 
@@ -55,12 +56,36 @@ header{
 	background-size: cover;
 	width: 100%;
 	min-height: 640px;
-	padding-top: 100px;
-
+	
+	margin-top: -73px;
 	h1{
 		color: white;
 		margin-bottom: 15px;
 		letter-spacing: 1px;
-		margin-top: 15%;
+		margin-top: 12%;
+
+		small{
+			font-style: italic;
+		}
+	}
+
+	.btn-danger, .btn-danger:hover{
+		width: 200px;
+		border-color: floralwhite;
+		border-radius: 5px;
+
+	}
+}
+
+.centrado{
+	margin: 40px 0;
+	width: 100%;
+	text-align: center;
+}
+
+@media screen and (max-width: 568px){
+	header h1{
+		margin-top: 25%;
+		font-size: 22px;
 	}
 }
