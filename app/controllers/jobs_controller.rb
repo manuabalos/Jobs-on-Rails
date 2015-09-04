@@ -12,7 +12,9 @@ class JobsController < ApplicationController
 	end
 
 	def filtrerjobs
-		Job.redirectURL(params[:web])
+		@jobs = Job.redirectURL(params[:web])
+		@webscraped = params[:web]
+		render "showjobs.html.erb"
 	end
 
 end

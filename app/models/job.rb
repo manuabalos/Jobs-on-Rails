@@ -46,13 +46,22 @@ class Job < ActiveRecord::Base
 		job.company = company
 		job.country = country
 		job.contact_URL = contact
-
 		job.webscraped = webscraped
+		
 		job.save
 	end
 
 	def self.redirectURL(web)
-		
+		case web
+			when "trabajosrails"
+			  return Job.where(webscraped: "trabajosrails")
+			when "betabeers"
+			  return Job.where(webscraped: "betabeers")
+			when "domestika"
+			  return Job.where(webscraped: "domestika")
+			 when "jobandtalent"
+			  return Job.where(webscraped: "jobandtalent")
+		end
 	end
 
 end

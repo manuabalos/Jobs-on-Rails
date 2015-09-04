@@ -18,10 +18,35 @@ a, a:link, a:hover, a:visited{
 }
 
 .div-company:hover{
-	background-color: #CDE3CD;
+	background-color: rgba(205, 227, 205, 0.5);
 }
 
 .center-all{
 	margin: 0 auto;
 	text-align: center;
+}
+
+.table-jobs{
+	margin-top: 2%;
+	border: 2px solid;
+	border-color: rgba(0, 0, 0, 0.2);
+	margin-left: auto;
+    margin-right: auto;
+}
+
+.thead-jobs{
+	background-color: rgba(0, 0, 0, 0.1);
+	border: 3px solid black;
+	border-color: rgba(0, 0, 0, 0.2);
+}
+
+.row-jobs{
+	cursor: pointer;
+}
+.td-date-job{
+	font-style: italic;
+}
+
+.td-title-job{
+	font-weight: bold;
 }

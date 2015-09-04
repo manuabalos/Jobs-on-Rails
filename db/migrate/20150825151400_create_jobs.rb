@@ -3,7 +3,7 @@ class CreateJobs < ActiveRecord::Migration
     create_table :jobs do |t|
     	
     	t.string :title				# TITULO
-    	t.date :date				# FECHA DE LA PUBLICACION
+    	t.string :date				# FECHA DE LA PUBLICACION
     	t.integer :salary			# SALARIO 
     	t.string :contract_type		# TIPO DE CONTRATO
     	t.text :description			# DESCRIPCION DE LA OFERTA
