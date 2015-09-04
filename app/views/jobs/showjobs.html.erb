@@ -7,14 +7,16 @@
 					<th colspan="4" class="text-center"><%= @webscraped.upcase %></th>
 				</tr>
 			</thead>
+			<tbody>
 			<% @jobs.each do |job| %>
-			  <tr class="row-jobs">
+			  <tr class="row-jobs click-row-job" data-href=<%= job_path(job) %>>
 			  	<td class="td-date-job"><%= job.date %></td>
 			  	<td class="text-center"><%= job.company %></td>
 			  	<td class="td-title-job"><%= job.title %></td>
 			  	<td><%= job.country %></td>
 			  </tr>
 		  	<% end %>
+		  	</tbody>
 		</table>
 		</div>
 	</div>

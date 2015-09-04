@@ -4,6 +4,11 @@ class JobsController < ApplicationController
 
 	end
 
+	def show
+		@job = Job.find(params[:id])
+		binding.pry
+	end
+
 	def scraping
 		Job.delete_all
 
