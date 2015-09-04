@@ -1,3 +1,13 @@
-// Place all the styles related to the jobs controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+div#content-button{
+	background: rgba(0,0,0,0.9);
+	text-align: center;
+	.btn-runscript{
+		margin-top: 1%;
+		margin-bottom: 1%;
+		border: 1px solid white;
+	}	
+}
+
+a, a:link, a:hover, a:visited{
+	text-decoration: none;
+}
