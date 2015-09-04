@@ -1,6 +1,8 @@
 class Job < ActiveRecord::Base
 
 	def self.scrapingTrabajosRails
+		webscraped ="trabajosrails"
+
 		pageTrabajoRails = Mechanize.new
 		pageTrabajoRails = pageTrabajoRails.get("http://www.trabajosrails.com/")
 		
@@ -29,11 +31,11 @@ class Job < ActiveRecord::Base
 
 			contact = pageTrabajoRailsJob.at(".contact-info-container p a").text
 
-			self.saveInfo(title, date, salary, contract_type, description, company, country, contact)
+			self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
 		end
 	end
 
-	def self.saveInfo(title, date, salary, contract_type, description, company, country, contact)
+	def self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
 		job = Job.new
 
 		job.title = title
@@ -45,6 +47,12 @@ class Job < ActiveRecord::Base
 		job.country = country
 		job.contact_URL = contact
 
+		job.webscraped = webscraped
 		job.save
 	end
+
+	def self.redirectURL(web)
+		
+	end
+
 end

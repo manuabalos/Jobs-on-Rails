@@ -1,42 +1,50 @@
 <div id="content-button"class="col-md-12" data-no-turbolink>
+	<!-- data-no-turbolink hace que no se ejecute dos veces la accion -->
 	<a href="<%= scraping_path %>">
 		<button type="button" class="btn btn-warning btn-runscript">Run Scraping (beta)</button>
-	</a>
-	<a href="#">
-		<button type="button" class="btn btn-info btn-runscript">Refresh Page</button>
 	</a>
 </div>
 
 <div class="container">
-	<div class="row center-all">
+	<div class="row center-all" data-no-turbolink>
 
-		<div class="col-md-3">
+		<%= link_to filtrerjobs_path(Job, :web => "trabajosrails") do%>
+		<!--<a href="<%# filtrerjobs_path %>"> -->
+		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/trabajosrails.png" width="150" alt="Logo trabajosrails" class="img-thumbnail">
       		<h3>trabajosrails</h3>
       		<hr>
 		</div>
+		<% end %>
+		<!--</a>-->
 
-		<div class="col-md-3">
+		<a href="#">
+		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/betabeers.png" width="150" alt="Logo betabeers" class="img-thumbnail">
       		<h3>betabeers</h3>
       		<hr>
 		</div>
+		</a>
 
-		<div class="col-md-3">
+		<a href="#">
+		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/domestika.jpg" width="150" alt="Logo domestika" class="img-thumbnail">
       		<h3>domestika</h3>
       		<hr>
 		</div>
+		</a>
 
-		<div class="col-md-3">
+		<a href="#">
+		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/jobandtalent.png" width="150" alt="Logo jobsandtalent" class="img-thumbnail">
       		<h3>jobandtalent</h3>
       		<hr>
 		</div>
-		
+		</a>
+
 	</div>
 </div>

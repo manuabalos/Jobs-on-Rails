@@ -5,11 +5,20 @@ div#content-button{
 		margin-top: 1%;
 		margin-bottom: 1%;
 		border: 1px solid white;
+		width: 150px;
 	}	
 }
 
 a, a:link, a:hover, a:visited{
 	text-decoration: none;
+}
+
+.div-company{
+		margin-top: 2%;
+}
+
+.div-company:hover{
+	background-color: #CDE3CD;
 }
 
 .center-all{

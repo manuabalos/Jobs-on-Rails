@@ -11,6 +11,8 @@ class CreateJobs < ActiveRecord::Migration
     	t.string :country			# CIUDAD
     	t.text :contact_URL			# PAIS
 
+      t.string :webscraped # WEB EN LA QUE SE HA REALIZADO EL SCRAPING
+
       t.timestamps null: false
     end
   end

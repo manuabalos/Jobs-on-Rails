@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150825151400) do
     t.string   "company"
     t.string   "country"
     t.text     "contact_URL"
+    t.string   "webscraped"
     t.datetime "created_at",    null: false
     t.datetime "updated_at",    null: false
   end
