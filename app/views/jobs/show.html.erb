@@ -1,1 +1,40 @@
-show.html.erb
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 text-center head-job-title">
+			<h3><%= @job.title %></h3>
+		</div>
+
+		<div class="col-md-12 head-job-body">
+		
+
+			<div class="row">
+				<div class="col-md-4">
+					<u>Company:</u> <%= @job.company %>
+				</div>
+				<div class="col-md-4">
+					<u>Country:</u> <%= @job.country %>
+				</div>
+				<div class="col-md-4">
+					<u>Date:</u> <%= @job.date %>
+				</div>
+			</div>
+
+			<hr>
+
+			<div class="row body-job-description">
+				<p>
+					<b>Salary:</b> <%= @job.salary %><br>
+					<b>Contract type:</b> <%= @job.contract_type %>
+				</p>
+				<p>
+					<hr>
+					<%= @job.description %>
+					<hr>
+				</p>
+				<p>
+					<b>Contact whith:</b>
+					<%= @job.contact_URL %>
+			</div>
+		</div>
+	</div>
+</div>
