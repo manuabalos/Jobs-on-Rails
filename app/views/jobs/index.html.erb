@@ -9,7 +9,6 @@
 	<div class="row center-all" data-no-turbolink>
 
 		<%= link_to filtrerjobs_path(Job, :web => "trabajosrails") do%>
-		<!--<a href="<%# filtrerjobs_path %>"> -->
 		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/trabajosrails.png" width="150" alt="Logo trabajosrails" class="img-thumbnail">
@@ -17,16 +16,16 @@
       		<hr>
 		</div>
 		<% end %>
-		<!--</a>-->
 
-		<a href="#">
+
+		<%= link_to filtrerjobs_path(Job, :web => "jobsandtalent") do%>
 		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/betabeers.png" width="150" alt="Logo betabeers" class="img-thumbnail">
       		<h3>betabeers</h3>
       		<hr>
 		</div>
-		</a>
+		<% end %>
 
 		<a href="#">
 		<div class="col-md-3 div-company">

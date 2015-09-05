@@ -35,6 +35,43 @@ class Job < ActiveRecord::Base
 		end
 	end
 
+	def self.scrapingJobAndTalent
+		webscraped ="jobandtalent"
+
+		pageJobAndTalent = Mechanize.new
+		pageJobAndTalent = pageJobAndTalent.get("http://www.jobandtalent.com/es/ofertas-de-empleo?q=ruby+on+rails&sort_by=created_at")
+		
+
+		pageJobAndTalent.search(".job_list .new_opening").each do |jobpreview|
+			@URL = jobpreview.at(".full_link")['href']
+
+			pageJobAndTalentJob = Mechanize.new
+			pageJobAndTalentJob = pageJobAndTalentJob.get("http://www.jobandtalent.com"+@URL)
+		
+			title = pageJobAndTalent.at(".opening_name").text
+			pageJobAndTalentJob.search(".m_general_info li").each_with_index do |info, index|
+				case index
+					when 0
+						@date = info.text
+					when 1
+						@contract_type = info.text
+					when 2
+						@salary = info.text
+				end
+			end
+
+			description = ""
+			pageJobAndTalentJob.search(".position_meta p").each do |paragraph|
+				description << paragraph.text
+			end
+
+			company = 
+
+		end
+		binding.pry
+
+	end
+
 	def self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
 		job = Job.new
 
@@ -59,7 +96,7 @@ class Job < ActiveRecord::Base
 			  return Job.where(webscraped: "betabeers")
 			when "domestika"
 			  return Job.where(webscraped: "domestika")
-			 when "jobandtalent"
+			when "jobandtalent"
 			  return Job.where(webscraped: "jobandtalent")
 		end
 	end
