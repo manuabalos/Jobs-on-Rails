@@ -18,7 +18,7 @@ class JobsController < ApplicationController
 	end
 
 	def filtrerjobs
-		@jobs = Job.redirectURL(params[:web])
+		@jobs = Job.redirectURL(params[:web]).order(created_at: :asc)
 		@webscraped = params[:web]
 		render "showjobs.html.erb"
 	end
