@@ -13,11 +13,8 @@ class Job < ActiveRecord::Base
 			pageTrabajoRailsJob = pageTrabajoRailsJob.get("http://www.trabajosrails.com"+@URL)
 
 			title = pageTrabajoRailsJob.at("header h1").text
-
 			date = pageTrabajoRailsJob.at("header .date").text
-
 			salary = "Undefined"
-
 			contract_type = "Undefined"
 
 			description = ""
@@ -26,9 +23,7 @@ class Job < ActiveRecord::Base
 			end
 
 			company = pageTrabajoRailsJob.at(".company a").text
-
 			country = pageTrabajoRailsJob.at(".company span").text
-
 			contact = pageTrabajoRailsJob.at(".contact-info-container p a").text
 
 			self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
@@ -36,8 +31,8 @@ class Job < ActiveRecord::Base
 	end
 
 	def self.scrapingJobAndTalent
-		webscraped ="jobandtalent"
-
+		@webscraped ="jobandtalent"
+		@count = 0
 		pageJobAndTalent = Mechanize.new
 		pageJobAndTalent = pageJobAndTalent.get("http://www.jobandtalent.com/es/ofertas-de-empleo?q=ruby+on+rails&sort_by=created_at")
 		
@@ -48,7 +43,7 @@ class Job < ActiveRecord::Base
 			pageJobAndTalentJob = Mechanize.new
 			pageJobAndTalentJob = pageJobAndTalentJob.get("http://www.jobandtalent.com"+@URL)
 		
-			title = pageJobAndTalent.at(".opening_name").text
+			@title = jobpreview.at(".opening_name").text
 			pageJobAndTalentJob.search(".m_general_info li").each_with_index do |info, index|
 				case index
 					when 0
@@ -60,15 +55,18 @@ class Job < ActiveRecord::Base
 				end
 			end
 
-			description = ""
-			pageJobAndTalentJob.search(".position_meta p").each do |paragraph|
-				description << paragraph.text
+			@description = ""
+			pageJobAndTalentJob.search(".position_meta").each do |paragraph|
+				@description << paragraph.text
 			end
 
-			company = 
+			@company = pageJobAndTalentJob.at(".job_info a").text
+			@country = pageJobAndTalentJob.at("a.unstyled").text
+			@contact = "http://www.jobandtalent.com"+@URL
 
+			@count += 1
+			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
 		end
-		binding.pry
 
 	end
 

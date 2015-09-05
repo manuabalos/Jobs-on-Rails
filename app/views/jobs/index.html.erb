@@ -18,14 +18,14 @@
 		<% end %>
 
 
-		<%= link_to filtrerjobs_path(Job, :web => "jobsandtalent") do%>
+		<a href="#">
 		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/betabeers.png" width="150" alt="Logo betabeers" class="img-thumbnail">
       		<h3>betabeers</h3>
       		<hr>
 		</div>
-		<% end %>
+		</a>
 
 		<a href="#">
 		<div class="col-md-3 div-company">
@@ -36,14 +36,14 @@
 		</div>
 		</a>
 
-		<a href="#">
+		<%= link_to filtrerjobs_path(Job, :web => "jobandtalent") do%>
 		<div class="col-md-3 div-company">
 			<hr>
 			<img src="/companyLogo/jobandtalent.png" width="150" alt="Logo jobsandtalent" class="img-thumbnail">
       		<h3>jobandtalent</h3>
       		<hr>
 		</div>
-		</a>
+		<% end %>
 
 	</div>
 </div>
