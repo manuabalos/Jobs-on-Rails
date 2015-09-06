@@ -28,7 +28,9 @@
 				</p>
 				<p>
 					<hr>
-					<%= @job.description %>
+					<% @job.description.each do |paragraph| %>
+						<p><%= paragraph %></p>
+					<% end %>
 					<hr>
 				</p>
 				<p>

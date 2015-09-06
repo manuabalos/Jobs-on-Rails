@@ -21,13 +21,13 @@ ActiveRecord::Schema.define(version: 20150825151400) do
     t.string   "date"
     t.string   "salary"
     t.string   "contract_type"
-    t.text     "description"
+    t.text     "description",   default: [],              array: true
     t.string   "company"
     t.string   "country"
     t.text     "contact_URL"
     t.string   "webscraped"
-    t.datetime "created_at",    null: false
-    t.datetime "updated_at",    null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
 end

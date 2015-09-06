@@ -1,7 +1,7 @@
 class Job < ActiveRecord::Base
 
 	def self.scrapingTrabajosRails
-		webscraped ="trabajosrails"
+		@webscraped ="trabajosrails"
 
 		pageTrabajoRails = Mechanize.new
 		pageTrabajoRails = pageTrabajoRails.get("http://www.trabajosrails.com/")
@@ -12,21 +12,22 @@ class Job < ActiveRecord::Base
 			pageTrabajoRailsJob = Mechanize.new
 			pageTrabajoRailsJob = pageTrabajoRailsJob.get("http://www.trabajosrails.com"+@URL)
 
-			title = pageTrabajoRailsJob.at("header h1").text
-			date = pageTrabajoRailsJob.at("header .date").text
-			salary = "Undefined"
-			contract_type = "Undefined"
+			@title = pageTrabajoRailsJob.at("header h1").text
+			@date = pageTrabajoRailsJob.at("header .date").text
+			@salary = "Undefined"
+			@contract_type = "Undefined"
 
-			description = ""
-			pageTrabajoRailsJob.search(".job_description p").each do |paragraph|
-				description << paragraph.text
+			@description = []
+			paragraph = pageTrabajoRailsJob.search(".job_description div")
+			paragraph.children.each do |content|
+				@description << content.text
 			end
 
-			company = pageTrabajoRailsJob.at(".company a").text
-			country = pageTrabajoRailsJob.at(".company span").text
-			contact = pageTrabajoRailsJob.at(".contact-info-container p a").text
+			@company = pageTrabajoRailsJob.at(".company a").text
+			@country = pageTrabajoRailsJob.at(".company span").text
+			@contact = pageTrabajoRailsJob.at(".contact-info-container p a").text
 
-			self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
+			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
 		end
 	end
 
@@ -55,9 +56,10 @@ class Job < ActiveRecord::Base
 				end
 			end
 
-			@description = ""
-			pageJobAndTalentJob.search(".position_meta").each do |paragraph|
-				@description << paragraph.text
+			@description = []
+			paragraph = pageJobAndTalentJob.search(".position_meta")
+			paragraph.children.each do |content|
+				@description << content.text
 			end
 
 			@company = pageJobAndTalentJob.at(".job_info a").text

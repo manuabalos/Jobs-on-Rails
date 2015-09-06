@@ -6,7 +6,7 @@ class CreateJobs < ActiveRecord::Migration
     	t.string :date				# FECHA DE LA PUBLICACION
     	t.string :salary			# SALARIO 
     	t.string :contract_type		# TIPO DE CONTRATO
-    	t.text :description			# DESCRIPCION DE LA OFERTA
+    	t.text :description, array: true, default: []			# DESCRIPCION DE LA OFERTA
     	t.string :company			# EMPRESA
     	t.string :country			# CIUDAD
     	t.text :contact_URL			# PAIS
