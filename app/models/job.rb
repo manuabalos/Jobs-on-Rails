@@ -33,7 +33,7 @@ class Job < ActiveRecord::Base
 
 	def self.scrapingJobAndTalent
 		@webscraped ="jobandtalent"
-		@count = 0
+
 		pageJobAndTalent = Mechanize.new
 		pageJobAndTalent = pageJobAndTalent.get("http://www.jobandtalent.com/es/ofertas-de-empleo?q=ruby+on+rails&sort_by=created_at")
 		
@@ -66,13 +66,34 @@ class Job < ActiveRecord::Base
 			@country = pageJobAndTalentJob.at("a.unstyled").text
 			@contact = "http://www.jobandtalent.com"+@URL
 
-			@count += 1
 			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
 		end
 
 	end
 
 	def self.scrapingBetabeers
+		@webscraped ="betabeers"
+
+		pageBetabeers = Mechanize.new
+		pageBetabeers = pageBetabeers.get("https://betabeers.com/post/?s=ruby+on+rails")
+
+		pageBetabeers.search(".joblist li").each do |jobpreview|
+			@URL = jobpreview.at(".title")['href']
+			
+			pageBetabeersJob = Mechanize.new
+			pageBetabeersJob = pageBetabeersJob.get(@URL)
+
+			@title = pageBetabeersJob.at(".col-md-9 h1").text
+			@date = pageBetabeersJob.at("p span.glyphicon-time").parent.text
+			if(pageBetabeersJob.at(".glyphicon-user"))
+				@salary = pageBetabeersJob.at(".glyphicon-user").parent.text
+			else
+				@salary = "Undefined"
+			end
+			@contract_type = "Undefined"
+			@description = ""
+		end
+		binding.pry
 
 	end
 

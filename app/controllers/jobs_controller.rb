@@ -11,8 +11,8 @@ class JobsController < ApplicationController
 	def scraping
 		Job.delete_all
 
-		Job.scrapingTrabajosRails
-		Job.scrapingJobAndTalent
+		#Job.scrapingTrabajosRails
+		#Job.scrapingJobAndTalent
 		Job.scrapingBetabeers
 
 		redirect_to jobs_path
