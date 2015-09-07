@@ -13,6 +13,7 @@ class JobsController < ApplicationController
 
 		Job.scrapingTrabajosRails
 		Job.scrapingJobAndTalent
+		Job.scrapingBetabeers
 
 		redirect_to jobs_path
 	end

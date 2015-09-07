@@ -72,6 +72,10 @@ class Job < ActiveRecord::Base
 
 	end
 
+	def self.scrapingBetabeers
+
+	end
+
 	def self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
 		job = Job.new
 
