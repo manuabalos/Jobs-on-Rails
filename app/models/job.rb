@@ -91,7 +91,13 @@ class Job < ActiveRecord::Base
 				@salary = "Undefined"
 			end
 			@contract_type = "Undefined"
-			@description = ""
+			@description = []
+			@description << pageBetabeersJob.at(".comment").text
+			@company = pageBetabeersJob.at("p span.glyphicon-home").parent.text
+			@country = pageBetabeersJob.at(".glyphicon-map-marker").parent.text
+			@contact = @URL
+
+			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
 		end
 		binding.pry
 
