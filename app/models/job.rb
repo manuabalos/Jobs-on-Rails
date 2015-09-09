@@ -99,7 +99,6 @@ class Job < ActiveRecord::Base
 
 			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
 		end
-		binding.pry
 
 	end
 
@@ -108,6 +107,30 @@ class Job < ActiveRecord::Base
 
 		pageDomestika = Mechanize.new
 		pageDomestika = pageDomestika.get("http://www.domestika.org/es/search/jobs?utf8=%E2%9C%93&query=ruby")
+		
+		pageDomestika.search(".jobs-list li").each do |jobpreview|
+			@URL = jobpreview.at(".job-title")['href']
+
+			pageDomestikaJob = Mechanize.new
+			pageDomestikaJob = pageDomestikaJob.get(@URL)
+
+			@title = pageDomestikaJob.at(".t-header-job h1").text
+			@date = pageDomestika.at(".job-item__date").text
+			@salary = pageDomestikaJob.at(".dl-horizontal dd[itemprop='baseSalary']").text
+			@contract_type = pageDomestika.at(".circle-badge").text
+			@description = []
+			paragraph = pageDomestikaJob.search(".job-description")
+			paragraph.children.each do |content|
+				@description << content.text
+			end 
+			@company = pageDomestikaJob.at(".dl-horizontal dd[itemprop='hiringOrganization']").text
+			@country = pageDomestikaJob.at(".dl-horizontal dd[itemprop='jobLocation']").text
+			@contact = @URL
+
+			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
+		end
+
+
 	end
 
 	def self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
