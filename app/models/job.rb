@@ -103,6 +103,13 @@ class Job < ActiveRecord::Base
 
 	end
 
+	def self.scrapingDomestika
+		@webscraped ="domestika"
+
+		pageDomestika = Mechanize.new
+		pageDomestika = pageDomestika.get("http://www.domestika.org/es/search/jobs?utf8=%E2%9C%93&query=ruby")
+	end
+
 	def self.saveInfo(title, date, salary, contract_type, description, company, country, contact, webscraped)
 		job = Job.new
 
@@ -129,6 +136,10 @@ class Job < ActiveRecord::Base
 			  return Job.where(webscraped: "domestika")
 			when "jobandtalent"
 			  return Job.where(webscraped: "jobandtalent")
+			when "linkedin"
+			  return Job.where(webscraped: "linkedin")
+			when "infojobs"
+			  return Job.where(webscraped: "infojobs")
 		end
 	end
 
