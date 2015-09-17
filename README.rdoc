@@ -7,16 +7,14 @@ La información de las ofertas de trabajo es obtenida a través de la tecnica sc
 Paginas web donde se aplica el scraping:
  - TrabajosRails.com
  - JobAndTalent
- - Betabeers (en desarrollo)
- - Domestika (en desarrollo)
+ - Betabeers
+ - Domestika
 
 === HERRAMIENTAS UTILIZADAS
 
  * Ruby 2.2.1
  * Ruby on Rails 4.2.3
  * Database PostgreSQL
- * 
- ... (en construcción)
 
 === AUTOR
 
