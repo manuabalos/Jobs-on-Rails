@@ -31,46 +31,6 @@ class Job < ActiveRecord::Base
 		end
 	end
 
-	def self.scrapingJobAndTalent
-		@webscraped ="jobandtalent"
-
-		pageJobAndTalent = Mechanize.new
-		pageJobAndTalent = pageJobAndTalent.get("http://www.jobandtalent.com/es/ofertas-de-empleo?q=ruby+on+rails&sort_by=created_at")
-		
-
-		pageJobAndTalent.search(".job_list .new_opening").each do |jobpreview|
-			@URL = jobpreview.at(".full_link")['href']
-
-			pageJobAndTalentJob = Mechanize.new
-			pageJobAndTalentJob = pageJobAndTalentJob.get("http://www.jobandtalent.com"+@URL)
-		
-			@title = jobpreview.at(".opening_name").text
-			pageJobAndTalentJob.search(".m_general_info li").each_with_index do |info, index|
-				case index
-					when 0
-						@date = info.text
-					when 1
-						@contract_type = info.text
-					when 2
-						@salary = info.text
-				end
-			end
-
-			@description = []
-			paragraph = pageJobAndTalentJob.search(".position_meta")
-			paragraph.children.each do |content|
-				@description << content.text
-			end
-
-			@company = pageJobAndTalentJob.at(".job_info a").text
-			@country = pageJobAndTalentJob.at("a.unstyled").text
-			@contact = "http://www.jobandtalent.com"+@URL
-
-			self.saveInfo(@title, @date, @salary, @contract_type, @description, @company, @country, @contact, @webscraped)
-		end
-
-	end
-
 	def self.scrapingBetabeers
 		@webscraped ="betabeers"
 
@@ -115,9 +75,9 @@ class Job < ActiveRecord::Base
 			pageDomestikaJob = pageDomestikaJob.get(@URL)
 
 			@title = pageDomestikaJob.at(".t-header-job h1").text
-			@date = pageDomestika.at(".job-item__date").text
+			@date = pageDomestikaJob.at(".js-timeago")["content"].to_date.strftime('%d-%m-%Y')
 			@salary = pageDomestikaJob.at(".dl-horizontal dd[itemprop='baseSalary']").text
-			@contract_type = pageDomestika.at(".circle-badge").text
+			@contract_type = pageDomestika.at(".circle-label").text
 			@description = []
 			paragraph = pageDomestikaJob.search(".job-description")
 			paragraph.children.each do |content|

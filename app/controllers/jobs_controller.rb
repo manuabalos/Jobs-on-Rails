@@ -12,7 +12,6 @@ class JobsController < ApplicationController
 		Job.delete_all
 
 		Job.scrapingTrabajosRails
-		Job.scrapingJobAndTalent
 		Job.scrapingBetabeers
 		Job.scrapingDomestika
 
